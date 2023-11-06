@@ -1,4 +1,4 @@
-package com.vukhoa23.entity;
+package com.vukhoa23.app.entity;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

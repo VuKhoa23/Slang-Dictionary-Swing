@@ -1,6 +1,6 @@
-package com.vukhoa23.UI;
+package com.vukhoa23.app.UI;
 
-import com.vukhoa23.entity.SlangWordManager;
+import com.vukhoa23.app.entity.SlangWordManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +9,6 @@ import java.io.FileNotFoundException;
 public class AppFrame extends JFrame {
     private final SlangWordManager manager = new SlangWordManager();
     private static final JPanel main = new JPanel();
-
 
     public class LeftNavBar extends JPanel {
         public LeftNavBar() throws FileNotFoundException {
@@ -22,7 +21,7 @@ public class AppFrame extends JFrame {
             findBySlangBtn.setPreferredSize(new Dimension(200, 50));
             findBySlangBtn.addActionListener((e) -> {
                 main.removeAll();
-                // add UI for feature here
+                main.add(new FindBySlang(manager));
                 main.revalidate();
                 main.repaint();
             });
@@ -47,6 +46,7 @@ public class AppFrame extends JFrame {
         this.add(leftNavBar, BorderLayout.WEST);
         this.add(header, BorderLayout.NORTH);
         this.add(footer, BorderLayout.SOUTH);
+        this.add(main, BorderLayout.CENTER);
 
         this.setVisible(true);
         this.pack();

@@ -1,6 +1,6 @@
-package com.vukhoa23;
+package com.vukhoa23.app;
 
-import com.vukhoa23.UI.AppFrame;
+import com.vukhoa23.app.UI.AppFrame;
 
 import java.io.FileNotFoundException;
 
