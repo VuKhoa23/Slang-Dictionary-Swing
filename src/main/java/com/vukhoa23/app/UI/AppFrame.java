@@ -81,6 +81,22 @@ public class AppFrame extends JFrame {
                 main.repaint();
             });
             this.add(deleteSlangWord);
+
+            JButton resetSlangWord = new JButton("Reset Slang Word");
+            resetSlangWord.setBackground(Color.green);
+            resetSlangWord.setPreferredSize(new Dimension(200, 50));
+            resetSlangWord.addActionListener((e) -> {
+                main.removeAll();
+                try {
+                    manager.readSlangWordsFromFile("slang.txt");
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
+                JOptionPane.showMessageDialog(this.getParent(), "Data reset successfully !", "Notify", JOptionPane.INFORMATION_MESSAGE);
+                main.revalidate();
+                main.repaint();
+            });
+            this.add(resetSlangWord);
         }
     }
 
