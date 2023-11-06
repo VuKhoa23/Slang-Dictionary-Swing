@@ -96,4 +96,19 @@ public class SlangWordManager {
         return (String) randomKey;
     }
 
+    public HashMap<String, String> getFourRandomSlang(){
+        HashMap<String, String> result = new HashMap<>();
+        for (int i = 0; i < 4; i++) {
+            Random generator = new Random();
+            Object[] keys = getWords().keySet().toArray();
+            Object randomKey = keys[generator.nextInt(keys.length)];
+            while(result.containsKey((String)randomKey)){
+                randomKey = keys[generator.nextInt(keys.length)];
+            }
+            result.put((String) randomKey, slangWords.get(randomKey));
+
+        }
+        return result;
+    }
+
 }
