@@ -26,6 +26,17 @@ public class AppFrame extends JFrame {
                 main.repaint();
             });
             this.add(findBySlangBtn);
+
+            JButton viewHistory = new JButton("View history");
+            viewHistory.setBackground(Color.green);
+            viewHistory.setPreferredSize(new Dimension(200, 50));
+            viewHistory.addActionListener((e) -> {
+                main.removeAll();
+                main.add(new ViewHistory(manager));
+                main.revalidate();
+                main.repaint();
+            });
+            this.add(viewHistory);
         }
     }
 
