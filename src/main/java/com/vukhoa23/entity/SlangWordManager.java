@@ -81,4 +81,19 @@ public class SlangWordManager {
         }
     }
 
+    public HashMap<String, Date> getHistory() {
+        return history;
+    }
+
+    public TreeMap<String, String> getWords(){
+        return slangWords;
+    }
+
+    public String getRandomSlang(){
+        Random generator = new Random();
+        Object[] keys = getWords().keySet().toArray();
+        Object randomKey = keys[generator.nextInt(keys.length)];
+        return (String) randomKey;
+    }
+
 }
