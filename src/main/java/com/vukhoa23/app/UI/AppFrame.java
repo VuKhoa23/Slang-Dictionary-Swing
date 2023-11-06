@@ -106,7 +106,16 @@ public class AppFrame extends JFrame {
             this.setBackground(Color.gray);
             this.setPreferredSize(new Dimension(200, 500));
 
-
+            JButton guessDefinition = new JButton("Guess definition");
+            guessDefinition.setBackground(Color.green);
+            guessDefinition.setPreferredSize(new Dimension(200, 50));
+            guessDefinition.addActionListener((e) -> {
+                main.removeAll();
+                main.add(new GuessDefinition(manager));
+                main.revalidate();
+                main.repaint();
+            });
+            this.add(guessDefinition);
         }
     }
 
