@@ -32,4 +32,17 @@ public class SlangWordManager {
         }
         return rs;
     }
+
+    public String getDefinitionBySlang(String slang){
+        HashMap<String, String> rs = new HashMap<>();
+        slangWords.forEach((key, value)->{
+            if(key.equals(slang)){
+                rs.put(key, value);
+            }
+        });
+        if(rs.size() == 0){
+            return null;
+        }
+        return rs.get(slang);
+    }
 }
