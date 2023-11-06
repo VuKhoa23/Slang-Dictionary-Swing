@@ -1,8 +1,10 @@
 package com.vukhoa23.entity;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.TreeMap;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
 
 public class SlangWordManager {
     TreeMap<String, String> slangWords = new TreeMap<>();
@@ -58,4 +60,25 @@ public class SlangWordManager {
         }
         return result;
     }
+
+    public void readSlangWordsFromFile(String fileName) throws FileNotFoundException {
+        slangWords = new TreeMap<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName));) {
+            String line;
+            line = reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                String[] rawDatas = line.split("`");
+                List<String> datas = Arrays.stream(rawDatas).toList();
+                if(datas.size() == 1){
+                    continue;
+                }
+                addToWords(datas.get(0), datas.get(1));
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
