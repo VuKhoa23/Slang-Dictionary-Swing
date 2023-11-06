@@ -45,4 +45,17 @@ public class SlangWordManager {
         }
         return rs.get(slang);
     }
+
+    public HashMap<String, String> findWordsByKeyWord(String keyWord){
+        HashMap<String, String> result = new HashMap<>();
+        slangWords.forEach((key, value)->{
+            if(value.contains(keyWord)){
+                result.put(key, value);
+            }
+        });
+        if(result.size() == 0){
+            return null;
+        }
+        return result;
+    }
 }
