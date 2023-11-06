@@ -127,6 +127,17 @@ public class AppFrame extends JFrame {
                 main.repaint();
             });
             this.add(guessSlang);
+
+            JButton onThisDaySlang = new JButton("On This Day Slang");
+            onThisDaySlang.setBackground(Color.green);
+            onThisDaySlang.setPreferredSize(new Dimension(200, 50));
+            onThisDaySlang.addActionListener((e) -> {
+                main.removeAll();
+                main.add(new OnThisDaySlang(manager));
+                main.revalidate();
+                main.repaint();
+            });
+            this.add(onThisDaySlang);
         }
     }
 
