@@ -116,6 +116,17 @@ public class AppFrame extends JFrame {
                 main.repaint();
             });
             this.add(guessDefinition);
+
+            JButton guessSlang = new JButton("Guess Slang Word");
+            guessSlang.setBackground(Color.green);
+            guessSlang.setPreferredSize(new Dimension(200, 50));
+            guessSlang.addActionListener((e) -> {
+                main.removeAll();
+                main.add(new GuessSlang(manager));
+                main.revalidate();
+                main.repaint();
+            });
+            this.add(guessSlang);
         }
     }
 
