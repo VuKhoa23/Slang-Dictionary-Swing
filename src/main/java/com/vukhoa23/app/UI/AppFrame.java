@@ -100,6 +100,16 @@ public class AppFrame extends JFrame {
         }
     }
 
+    public class RightNavBar extends JPanel {
+        public RightNavBar() {
+            this.setLayout(new FlowLayout(0, 0, 50));
+            this.setBackground(Color.gray);
+            this.setPreferredSize(new Dimension(200, 500));
+
+
+        }
+    }
+
     public AppFrame() throws FileNotFoundException {
         super("Slang Words");
         main.setBackground(Color.darkGray);
@@ -113,11 +123,13 @@ public class AppFrame extends JFrame {
         manager.readSlangWordsFromFile("slang.txt");
         Header header = new Header();
         LeftNavBar leftNavBar = new LeftNavBar();
+        RightNavBar rightNavBar = new RightNavBar();
         Footer footer = new Footer();
-        this.add(leftNavBar, BorderLayout.WEST);
         this.add(header, BorderLayout.NORTH);
-        this.add(footer, BorderLayout.SOUTH);
+        this.add(leftNavBar, BorderLayout.WEST);
         this.add(main, BorderLayout.CENTER);
+        this.add(rightNavBar, BorderLayout.EAST);
+        this.add(footer, BorderLayout.SOUTH);
 
         this.setVisible(true);
         this.pack();
