@@ -37,6 +37,19 @@ public class AppFrame extends JFrame {
                 main.repaint();
             });
             this.add(viewHistory);
+
+            JButton findByDefinitionBtn = new JButton("Find by Definition");
+            findByDefinitionBtn.setBackground(Color.green);
+            findByDefinitionBtn.setPreferredSize(new Dimension(200, 50));
+            findByDefinitionBtn.addActionListener((e) -> {
+                main.removeAll();
+                main.add(new FindByDefinition(manager));
+                main.revalidate();
+                main.repaint();
+            });
+            this.add(findByDefinitionBtn);
+
+
         }
     }
 
