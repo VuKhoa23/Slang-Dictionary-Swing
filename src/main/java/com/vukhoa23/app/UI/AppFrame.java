@@ -49,6 +49,16 @@ public class AppFrame extends JFrame {
             });
             this.add(findByDefinitionBtn);
 
+            JButton addNewSlangWord = new JButton("Add new Slang Word");
+            addNewSlangWord.setBackground(Color.green);
+            addNewSlangWord.setPreferredSize(new Dimension(200, 50));
+            addNewSlangWord.addActionListener((e) -> {
+                main.removeAll();
+                main.add(new AddSlangWord(manager));
+                main.revalidate();
+                main.repaint();
+            });
+            this.add(addNewSlangWord);
 
         }
     }
