@@ -52,16 +52,5 @@ public class ViewHistory extends JPanel {
         add(scrollPane);
         this.add(main, BorderLayout.CENTER);
         main.add(scrollPane);
-
-        JButton findByDefinitionBtn = new JButton("Find by Definition");
-        findByDefinitionBtn.setBackground(Color.green);
-        findByDefinitionBtn.setPreferredSize(new Dimension(200, 50));
-        findByDefinitionBtn.addActionListener((e) -> {
-            main.removeAll();
-            main.add(new FindByDefinition(manager));
-            main.revalidate();
-            main.repaint();
-        });
-        this.add(findByDefinitionBtn);
     }
 }

@@ -60,6 +60,27 @@ public class AppFrame extends JFrame {
             });
             this.add(addNewSlangWord);
 
+            JButton editSlangWord = new JButton("Edit Slang Word");
+            editSlangWord.setBackground(Color.green);
+            editSlangWord.setPreferredSize(new Dimension(200, 50));
+            editSlangWord.addActionListener((e) -> {
+                main.removeAll();
+                main.add(new EditSlangWord(manager));
+                main.revalidate();
+                main.repaint();
+            });
+            this.add(editSlangWord);
+
+            JButton deleteSlangWord = new JButton("Delete Slang Word");
+            deleteSlangWord.setBackground(Color.green);
+            deleteSlangWord.setPreferredSize(new Dimension(200, 50));
+            deleteSlangWord.addActionListener((e) -> {
+                main.removeAll();
+                main.add(new DeleteSlangWord(manager));
+                main.revalidate();
+                main.repaint();
+            });
+            this.add(deleteSlangWord);
         }
     }
 
