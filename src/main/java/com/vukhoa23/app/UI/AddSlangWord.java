@@ -8,8 +8,8 @@ import java.util.HashMap;
 
 public class AddSlangWord extends JPanel {
     public AddSlangWord(SlangWordManager manager) {
-        this.setBounds(0,0,500,500);
-        this.setPreferredSize(new Dimension(500, 500 ));
+        this.setBounds(0, 0, 500, 500);
+        this.setPreferredSize(new Dimension(500, 500));
         this.setBackground(Color.darkGray);
 
 
@@ -39,35 +39,30 @@ public class AddSlangWord extends JPanel {
         JPanel main = new JPanel();
         main.setLayout(new BorderLayout());
 
-        createBtn.addActionListener((e)->{
+        createBtn.addActionListener((e) -> {
             String slang = slangInput.getText();
             String definition = definitionInput.getText();
 
             HashMap<String, String> result = manager.findBySlangWord(slang);
             if (result != null) {
-                int rewrite = JOptionPane.showConfirmDialog(this,"Slang exists. Rewrite?", "Rewrite",
+                int rewrite = JOptionPane.showConfirmDialog(this, "Slang exists. Rewrite?", "Rewrite",
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.QUESTION_MESSAGE);
                 // 0 is yes
                 if (rewrite == 0) {
                     manager.addToWords(slang, definition);
                     JOptionPane.showMessageDialog(this, "Slang rewrited", "Notify", JOptionPane.INFORMATION_MESSAGE);
-                }
-                else{
-                    JOptionPane.showMessageDialog(this, "Slang was not saved", "Notify", JOptionPane.ERROR_MESSAGE);
-                }
+                } else {
 
-                // duplicate processing
-                int duplicate = JOptionPane.showConfirmDialog(this,"Duplicate definition ?", "Duplicate",
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.QUESTION_MESSAGE);
-                // 0 is yes
-                if (duplicate == 0) {
-                    manager.addToWords(slang, manager.getDefinitionBySlang(slang) + " | " + definition);
-                    JOptionPane.showMessageDialog(this, "Slang duplicated", "Notify", JOptionPane.INFORMATION_MESSAGE);
-                }
-                else{
-                    JOptionPane.showMessageDialog(this, "Slang was duplicated", "Notify", JOptionPane.ERROR_MESSAGE);
+                    // duplicate processing
+                    int duplicate = JOptionPane.showConfirmDialog(this, "Duplicate definition ?", "Duplicate",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE);
+                    // 0 is yes
+                    if (duplicate == 0) {
+                        manager.addToWords(slang, manager.getDefinitionBySlang(slang) + " | " + definition);
+                        JOptionPane.showMessageDialog(this, "Slang duplicated", "Notify", JOptionPane.INFORMATION_MESSAGE);
+                    }
                 }
             } else {
                 manager.addToWords(slang, definition);
