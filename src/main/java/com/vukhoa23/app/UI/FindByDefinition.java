@@ -19,6 +19,12 @@ public class FindByDefinition extends JPanel {
 
         JPanel inputContainer = new JPanel();
         inputContainer.setLayout(new FlowLayout());
+        inputContainer.setPreferredSize(new Dimension(500, 100));
+
+        JLabel inputLabel = new JLabel("Input the definition of the slang word");
+        inputLabel.setFont(new Font("SansSerif",Font.PLAIN, 15));
+        inputLabel.setPreferredSize(new Dimension(500, 20));
+        inputLabel.setHorizontalAlignment(JLabel.CENTER);
 
         JTextField keyWordInput = new JTextField();
         keyWordInput.setPreferredSize(new Dimension(200, 50));
@@ -63,6 +69,7 @@ public class FindByDefinition extends JPanel {
 
         });
 
+        inputContainer.add(inputLabel);
         inputContainer.add(keyWordInput);
         inputContainer.add(findBtn);
         this.add(main, BorderLayout.CENTER);

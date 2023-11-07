@@ -19,6 +19,12 @@ public class FindBySlang extends JPanel {
 
         JPanel inputContainer = new JPanel();
         inputContainer.setLayout(new FlowLayout());
+        inputContainer.setPreferredSize(new Dimension(500, 100));
+
+        JLabel inputLabel = new JLabel("Input the slang word you want to find");
+        inputLabel.setFont(new Font("SansSerif",Font.PLAIN, 15));
+        inputLabel.setPreferredSize(new Dimension(500, 20));
+        inputLabel.setHorizontalAlignment(JLabel.CENTER);
 
         JTextField slangInput = new JTextField();
         slangInput.setPreferredSize(new Dimension(200, 50));
@@ -60,6 +66,7 @@ public class FindBySlang extends JPanel {
 
         });
 
+        inputContainer.add(inputLabel);
         inputContainer.add(slangInput);
         inputContainer.add(findBtn);
         this.add(main, BorderLayout.CENTER);
