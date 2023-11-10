@@ -50,6 +50,7 @@ public class DeleteSlangWord extends JPanel {
             } else {
                 JOptionPane.showMessageDialog(this, "Slang word doesn't exists !", "Notify", JOptionPane.ERROR_MESSAGE);
             }
+            manager.writeSlangWordsToFile("output.txt");
         });
 
         inputContainer.add(inputLabel);

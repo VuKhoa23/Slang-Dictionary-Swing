@@ -60,7 +60,7 @@ public class AddSlangWord extends JPanel {
                             JOptionPane.QUESTION_MESSAGE);
                     // 0 is yes
                     if (duplicate == 0) {
-                        manager.addToWords(slang, manager.getDefinitionBySlang(slang) + " | " + definition);
+                        manager.addToWords(slang, manager.getDefinitionBySlang(slang) + "| " + definition);
                         JOptionPane.showMessageDialog(this, "Slang duplicated", "Notify", JOptionPane.INFORMATION_MESSAGE);
                     }
                 }
@@ -68,6 +68,7 @@ public class AddSlangWord extends JPanel {
                 manager.addToWords(slang, definition);
                 JOptionPane.showMessageDialog(this, "Slang added successfully", "Notify", JOptionPane.INFORMATION_MESSAGE);
             }
+            manager.writeSlangWordsToFile("output.txt");
         });
 
         slangInputContainer.add(slangLabel);

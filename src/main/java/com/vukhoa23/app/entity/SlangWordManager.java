@@ -1,14 +1,19 @@
 package com.vukhoa23.app.entity;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class SlangWordManager {
-    TreeMap<String, String> slangWords = new TreeMap<>();
-    HashMap<String, Date> history = new HashMap<>();
+    private TreeMap<String, String> slangWords = new TreeMap<>();
+    private HashMap<String, Date> history = new HashMap<>();
+
+    public HashMap<String, Date> getHistory() {
+        return history;
+    }
+
+    public TreeMap<String, String> getWords(){
+        return slangWords;
+    }
 
     public void addToHistory(String key, String value) {
         history.put(key, new Date());
@@ -81,14 +86,6 @@ public class SlangWordManager {
         }
     }
 
-    public HashMap<String, Date> getHistory() {
-        return history;
-    }
-
-    public TreeMap<String, String> getWords(){
-        return slangWords;
-    }
-
     public String getRandomSlang(){
         Random generator = new Random();
         Object[] keys = getWords().keySet().toArray();
@@ -109,6 +106,23 @@ public class SlangWordManager {
 
         }
         return result;
+    }
+
+    public void writeSlangWordsToFile(String fileName){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));) {
+            writer.write("");
+            slangWords.forEach((key, value)->{
+                try {
+                    writer.write(key + "`" + value + "\n");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

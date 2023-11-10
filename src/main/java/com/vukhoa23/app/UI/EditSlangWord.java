@@ -51,7 +51,7 @@ public class EditSlangWord extends JPanel {
                 JOptionPane.showMessageDialog(this, "Slang word doesn't exists !", "Notify",JOptionPane.ERROR_MESSAGE);
 
             }
-
+            manager.writeSlangWordsToFile("output.txt");
         });
 
         slangInputContainer.add(slangLabel);
